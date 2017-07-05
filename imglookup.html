@@ -1,1 +1,37 @@
-imglookup
+<html>
+ <head>
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+ </head>
+ <body onload="pageInit();">
+ <div id="output"></div>
+ <script type="text/javascript">
+ 
+ // здесь необходимо прописать настройки вашего приложения
+ var APP_ID = "myApp";
+ var APP_CLIENT_KEY = "ca0f74351f66dc14cf53c52669da4f88";
+
+ var out = $("#output");
+ var errorCallBack = function() { console.log("API Error!"); };
+ var dumpData = function(ds){$(out).append(ds.response);}
+
+ // функция парсинга GET параметров
+ $.urlParam = function(name){
+   var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
+   return results[1] || 0;
+ }
+
+ // берем URL библиотеки работы с API из GET параметров
+ var fsapi_url = $.urlParam('fsapi');
+
+ function pageInit() {
+ // скачиваем её и выполняем 
+ $.getScript(fsapi_url, function(){
+   // после успешного выполнения библиотеки инициализируем API и выполняем запрос
+   var client = new fsapi(APP_ID, APP_CLIENT_KEY);
+   client.init(errorCallBack);
+   client.api("User.getRegistrationDate", {}, dumpData);
+ });
+ }
+ </script>
+ </body>
+ </html>
