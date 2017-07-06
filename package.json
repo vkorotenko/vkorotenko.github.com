@@ -1,0 +1,27 @@
+{
+  "name": "vkorotenko.github.com",
+  "version": "1.0.0",
+  "description": "vkorotenko.ru site",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo 'no tests'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vkorotenko/vkorotenko.github.com.git"
+  },
+  "keywords": [
+    "site",
+    "bootstrap"
+  ],
+  "author": "Vladimir N. Korotenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vkorotenko/vkorotenko.github.com/issues"
+  },
+  "homepage": "https://github.com/vkorotenko/vkorotenko.github.com#readme"
+}
