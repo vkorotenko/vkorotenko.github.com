@@ -1,11 +1,14 @@
 <html>
- <head>
- <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
- </head>
- <body onload="pageInit();">
- <div id="output"></div>
- <script type="text/javascript">
- 
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    $( document ).ready(function() {
+      console.log( "ready!" );
+      pageInit();
+    });
  // здесь необходимо прописать настройки вашего приложения
  var APP_ID = "1573562";
  var APP_CLIENT_KEY = "283b8166bdcbc65939cfacb29f7977aa";
@@ -31,7 +34,28 @@
    client.init(errorCallBack);
    client.api("User.getRegistrationDate", {}, dumpData);
  });
- }
- </script>
- </body>
- </html>
+}
+</script>
+</head>
+<body >
+
+  <div class="container-fluid text-center">
+    <h2>Кто на картинке.</h2>
+    <p>Узнайте кто автор фотографии в Фотостране.</p>
+    <p>Просто введите адрес изображения.</p>    
+    <div class="col-sm-4 text-left form-inline">
+      <div class="form-group">
+       <label for="search-image" class="sr-only">Адрес картинки</label>
+       <input type="string" class="form-control input-sm" id="search-image" placeholder="Адрес картинки">
+     </div> 
+     <div class="form-group">
+       <button id="search-btn" type="button" class="btn btn-default btn-sm">искать</button>
+     </div> 		
+   </div>
+ </div>
+
+ <div id="output" class="help-block">
+
+ </div>
+</body>
+</html>
