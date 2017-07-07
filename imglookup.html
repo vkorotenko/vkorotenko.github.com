@@ -4,6 +4,7 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://st.fotocdn.net/app/app/js/__v1439910295.fsapi.js"></script>
   <script type="text/javascript">
     $( document ).ready(function() {
       console.log( "ready!" );
@@ -15,26 +16,27 @@
 
  var out = $("#output");
  var errorCallBack = function() { console.log("API Error!"); };
- var dumpData = function(ds){$(out).append(ds.response);}
+ var dumpData = function(ds){$(out).append(ds.response);};
 
  // функция парсинга GET параметров
  $.urlParam = function(name){
    var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
    return results[1] || 0;
- }
+ };
 
  // берем URL библиотеки работы с API из GET параметров
  var fsapi_url = $.urlParam('fsapi');
 
  function pageInit() {
  // скачиваем её и выполняем 
- $.getScript(fsapi_url, function(){
+ //$.getScript(fsapi_url, function(){
    // после успешного выполнения библиотеки инициализируем API и выполняем запрос
    var client = new fsapi(APP_ID, APP_CLIENT_KEY);
    client.init(errorCallBack);
    client.api("User.getRegistrationDate", {}, dumpData);
- });
+ //});
 }
+
 </script>
 </head>
 <body >
