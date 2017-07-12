@@ -9,7 +9,7 @@ $( document ).ready(function() {
 		// console.log( $('#method').val());
 		// console.log( $('#search-image').val());
 		var method = $('#method').val(), 
-			param = $('#param').val();
+		param = $('#param').val();
 		callApi(method, param);
 	});
 });
@@ -23,13 +23,20 @@ $( document ).ready(function() {
  	$(err).append(ds.error);
  	$(out).append(ds.response);
  };
-
+ $.urlParam = function(name){
+ 	var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
+ 	return results[1] || 0;
+ }
 
  // берем URL библиотеки работы с API из GET параметров
  // var fsapi_url = $.urlParam('fsapi');
 
- function callApi(method, param ) { 	
- 	var client = new fsapi(APP_ID, APP_CLIENT_KEY);
- 	client.init(errorCallBack);
- 	client.api(method, param, dumpData);
+ function callApi(method, param ) {
+ 	var fsapi_url = $.urlParam('fsapi');
+ 	$.getScript(fsapi_url, function(){
+   // после успешного выполнения библиотеки инициализируем API и выполняем запрос
+   var client = new fsapi(APP_ID, APP_CLIENT_KEY);
+   client.init(errorCallBack);
+   client.api(method, param, dumpData);  }); 	
+ 	
  }
