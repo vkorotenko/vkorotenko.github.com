@@ -11,19 +11,21 @@
     <p>Просто введите адрес изображения. По идее доступен адрес человека, название альбома и другие фотки.</p>    
 
     <div class="row">
-      <div class="col-sm-4">Method:</div>
-      <div class="col-sm-8">Parameter</div>
       
-      <div class="col-sm-4">
-        <input type="text" id="method" class="form-control input-sm" value="User.getRegistrationDate">
+      
+      <div class="col-sm-4 col-md-offset-2">
+        <textarea rows="10" cols="55" id="method" class="form-control input-sm">
+{
+     method: 'User.getFriendsAny',
+     userId: 50474019     
+}
+        </textarea>
       </div>   
-      <div class="col-sm-4">
-        <input type="text" id="param" class="form-control input-sm" value="{}">
-      </div>   
+      
       <div class="col-sm-4 text-left form-inline">
         <div class="form-group">
          <label for="search-image" class="sr-only">Адрес картинки</label>
-         <input type="string" class="form-control input-sm" id="search-image" placeholder="Адрес картинки" value="https://i02.fotocdn.net/s25/98/gallery_l/287/2628066913.jpg">
+         
        </div> 
        <div class="form-group">
          <button id="search-btn" type="button" class="btn btn-default btn-sm">искать</button>
@@ -31,7 +33,7 @@
      </div>
    </div>
    <div class="row">
-     <div id="output" class="help-block col-sm-4">
+     <div id="output" class="help-block col-sm-4 col-md-offset-2">
      output...
      </div>
      <div id="err" class="help-block col-sm-4">
@@ -43,6 +45,7 @@
  
  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+ <script type="text/javascript" src="js/md5.min.js"></script>
  <script type="text/javascript" src="fs.js"></script>
 </body>
 </html>
