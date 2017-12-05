@@ -53,7 +53,7 @@
                             <ul class="dropdown-menu" aria-labelledby="themes">
                                 <li><a href="https://github.com/vkorotenko/mouse">Measure the path traveled by the mouse
                                 cursor</a></li>
-                                <!-- <li class="divider"></li>	-->
+                                <li><a href="#socialgr">Социальный граф</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -229,10 +229,20 @@
                     <p>
                         Создание сайтов под ключ на Wordpress и т.д.
                     </p>
+                    <h2>Проекты</h2>
+                    <h3 id="socialgr">Социальный граф</h3>
 
-
-
-
+                    <style type="text/css">
+                        #demo{
+                            width: 80%;
+                            height: 600px;
+                        }
+                        body{
+                            
+                        }
+                    </style>
+                    <div id="demo">                   
+                    </div>
                     <h2 id="contact">Контакты</h2>
 
                     <div itemscope itemtype="http://schema.org/Organization" class="contact">
@@ -278,7 +288,38 @@
 <script src="./assets/js/jquery-1.10.2.min.js"></script>
 <script src="./assets/js/bootstrap.min.js"></script>
 <script src="./assets/js/custom.js"></script>
+<script src="jqcloud.min.js"></script>
+<link rel="stylesheet" href="jqcloud.min.css">
+<script type="text/javascript">
+    var words =[];
 
+    
+    $('#demo').jQCloud(words, {
+        /*shape: 'rectangular',*/
+        autoResize: true,
+        /*classPattern: null,
+        colors: ["#800026", "#bd0026", "#e31a1c", "#fc4e2a", "#fd8d3c", "#feb24c", "#fed976", "#ffeda0", "#ffffcc"],
+        */
+        fontSize: {
+            from: 0.25,
+            to: 0.05
+        }
+    });
+    
+    $(function(){
+        $.getJSON( "word.json", function( data ) {          
+            $.each( data, function( key, val ) {
+                items.push( "<li id='" + key + "'>" + val + "</li>" );
+            });         
+        });
+        
+        $.getJSON('word.json', function(data){      
+            
+            words = eval(data);
+            $('#demo').jQCloud('update', words);
+        });
+    });
+</script>
 </div>
 </body>
 </html>
