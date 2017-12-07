@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="content-type" content="text/html; charset=UTF8">
+  <title>Network |  Static smooth curves social graph</title>
+
+  <script type="text/javascript" src="vis.js"></script>
+  <link type="text/css" rel="stylesheet" href="vis-network.min.css">
+  <script type="text/javascript" src="../assets/js/jquery-1.10.2.min.js"></script>
+  <script src="ds.js"></script>
+
+  <style type="text/css">
+  #mynetwork {
+    width: 800px;
+    height: 600px;
+    border: 1px solid lightgray;
+  }
+</style>
+
+</head>
+
+<body>
+
+  <h2>Звонки в компании</h2>
+  <div style="width:800px; font-size:14px;">
+    Проверка направлений звонков.
+    <br /><br />
+  </div>
+
+  <div id="mynetwork"></div>
+
+  <script type="text/javascript">
+    var network;
+    var allNodes;
+    var highlightActive = false;
+
+  // JSON.stringify(nodesDataset)
+  // JSON.parse
+  var nodesDataset = new vis.DataSet(companys); // these come from ds.js
+  var edgesDataset = new vis.DataSet(edges); // these come from ds.js
+
+  function redrawAll() {
+    var container = document.getElementById('mynetwork');
+    var options = {
+
+      locale: 'ru',
+      nodes: {
+        /* The shape defines what the node looks like. There are two types of nodes. One type has the label inside of it and the other type has the label underneath it. The types with the label inside of it are: ellipse, circle, database, box, text. The ones with the label outside of it are: image, circularImage, diamond, dot, star, triangle, triangleDown, hexagon, square and icon.*/
+        shape: 'circle',
+        scaling: {
+          min: 10,
+          max: 20,
+          label: {
+            min: 12,
+            /*Оно самое*/
+            max: 20,
+            drawThreshold: 12,
+            maxVisible: 20
+          }
+        },
+        font: {
+          size: 12,
+          face: 'Tahoma'
+        }
+      },
+      edges: {
+        width: 0.15,
+        color: {inherit: 'from'},
+        smooth: {
+          type: 'continuous'
+        }
+      },
+      physics: false,
+      interaction: {
+        tooltipDelay: 200,
+        hideEdgesOnDrag: true
+      }
+    };
+    var data = {nodes:nodesDataset, edges:edgesDataset} // Note: data is coming from ds.js
+
+
+    network = new vis.Network(container, data, options);
+
+    // get a JSON object
+    allNodes = nodesDataset.get({returnType:"Object"});
+
+    // network.on("click",neighbourhoodHighlight);
+  }
+
+
+
+
+  $(function(){
+    // JSON.stringify(nodesDataset)
+    $.get('nodes.json', function(data){
+      var com = eval(data);
+      nodesDataset = new vis.DataSet(com); // these come from ds.js
+      $.get('graph.json', function(gdata){
+        var edg = eval(gdata);
+        edgesDataset = new vis.DataSet(edges); // these come from ds.js
+        redrawAll();
+      });      
+    });
+
+    
+    
+  });
+</script>
+
+</body></html>
+
