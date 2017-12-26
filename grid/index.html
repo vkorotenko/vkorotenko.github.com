@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Коротенко Владимир - Независимый разработчик ПО и консультант.</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+	<style type="text/css">
+	td {
+		/*width:100px;*/
+		border:1px solid black; 
+		height:2em;
+	}
+	table {
+		border-collapse:collapse;
+		font-size:15px;
+	}
+	.subrow {        
+		font-size:0;
+		transition:font-size 400ms;
+	}
+	td > span {     
+		float:right;
+		width:1em;
+		height:1em;       
+		position:relative;
+		margin-right:3px;    
+	}
+	td > span:before {
+		content:'';
+		position:absolute;
+		width:80%;
+		height:0;
+		left:10%;
+		top:50%;
+		margin-top:-1px;
+		border-top:2px solid black;     
+		border-color:inherit;
+	}
+	td > span.collapsed:after {
+		content:'';
+		position:absolute;
+		height:80%;
+		width:0;
+		margin-left:-1px;
+		border-left:2px solid black;
+		border-color:inherit;    
+		left:50%;
+		top:10%;
+	}
+	td > span:hover {
+		border-color:orange;
+	}
+	.ord{
+		display: none;
+	}
+	.group{
+		background-color: #ccc;
+	}
+</style>
+
+<table>
+	<tr >		
+		<th class="ord"></th>
+		<th>№ п/п</th>
+		<th>Наименование</th>
+		<th>Ед. измерения</th>
+		<th>Кол-во единиц</th>
+		<th>"Цена за ед. изм. (руб.)"</th>
+		<th>Работы</th>
+		<th>Материалы</th>
+	</tr>
+	<tr class="group">		
+		<td class="ord">1</td>
+		<td>1.1</td>
+		<td>РАЗДЕЛ ДЕМОНТАЖ</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>		
+		<td class="ord">1</td>
+		<td></td>
+		<td>Демонтаж плинтуса</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>		
+		<td class="ord">1</td>
+		<td></td>
+		<td>Демонтаж плинтуса 1</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>		
+		<td class="ord">1</td>
+		<td></td>
+		<td>Демонтаж плинтуса 2</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+
+	<tr class="group">
+		
+		<td class="ord">2</td>
+		<td>2.1</td>
+		<td>РАЗДЕЛ ВОЗВЕДЕНИЕ СТЕН</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		
+		<td class="ord">2</td>
+		<td></td>
+		<td>
+			РАЗДЕЛ ВОЗВЕДЕНИЕ СТЕН 1
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		
+		<td class="ord">2</td>
+		<td></td>
+		<td>
+			РАЗДЕЛ ВОЗВЕДЕНИЕ СТЕН 2
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		
+		<td class="ord">2</td>
+		<td></td>
+		<td>
+			РАЗДЕЛ ВОЗВЕДЕНИЕ СТЕН 3
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">3</td>
+		<td>2.2</td>
+		<td>РАЗДЕЛ УТЕПЛЕНИЕ СТЕН</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		
+		<td class="ord">3</td>
+		<td> </td>
+		<td>РАЗДЕЛ УТЕПЛЕНИЕ СТЕН</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr>
+		
+		<td class="ord">3</td>
+		<td> </td>
+		<td>РАЗДЕЛ УТЕПЛЕНИЕ СТЕН 1</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+<tr>
+		
+		<td class="ord">3</td>
+		<td> </td>
+		<td>РАЗДЕЛ УТЕПЛЕНИЕ СТЕН 2</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+
+
+	<tr class="group">
+		
+		<td class="ord">4</td>
+		<td>2.3</td>
+		<td>РАЗДЕЛ ШТУКАТУРКА СТЕН</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr >
+		
+		<td class="ord">4</td>
+		<td></td>
+		<td>РАЗДЕЛ ШТУКАТУРКА СТЕН</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr><tr >
+		
+		<td class="ord">4</td>
+		<td></td>
+		<td>РАЗДЕЛ ШТУКАТУРКА СТЕН</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr><tr >
+		
+		<td class="ord">4</td>
+		<td></td>
+		<td>РАЗДЕЛ ШТУКАТУРКА СТЕН</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">5</td>
+		<td>2.4</td>
+		<td>
+			РАЗДЕЛ ШУМОИЗОЛЯЦИЯ СТЕН
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+
+	<tr >
+		
+		<td class="ord">5</td>
+		<td></td>
+		<td>
+			РАЗДЕЛ ШУМОИЗОЛЯЦИЯ СТЕН
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>	<tr >
+		
+		<td class="ord">5</td>
+		<td></td>
+		<td>
+			РАЗДЕЛ ШУМОИЗОЛЯЦИЯ СТЕН
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>	<tr >
+		
+		<td class="ord">5</td>
+		<td></td>
+		<td>
+			РАЗДЕЛ ШУМОИЗОЛЯЦИЯ СТЕН
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+
+	<tr class="group">
+		
+		<td class="ord">6</td>
+		<td>2.5</td>
+		<td>
+			РАЗДЕЛ ШПАТЛЕВКА СТЕН	
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">7</td>
+		<td>2.6</td>
+		<td>
+			РАЗДЕЛ ПОКЛЕЙКА ОБОЕВ НА СТЕНЫ		
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">8</td>
+		<td>2.7</td>
+		<td>
+			РАЗДЕЛ ПОКРАСКА СТЕН
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">9</td>
+		<td>2.8</td>
+		<td>
+			РАЗДЕЛ УСТРОЙСТВО ПЛИТКИ НА СТЕНАХ
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">10</td>
+		<td>3.1</td>
+		<td>
+			РАЗДЕЛ УТЕПЛЕНИЕ ПОЛА
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">11</td>
+		<td>3.2</td>
+		<td>
+			РАЗДЕЛ ШУМОИЗОЛЯЦИЯ ПОЛА
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">12</td>
+		<td>3.3</td>
+		<td>
+			РАЗДЕЛ СТЯЖКА ПОЛА
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">13</td>
+		<td>3.4</td>
+		<td>
+			РАЗДЕЛ ГИДРОИЗОЛЯЦИЯ ПОЛА
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">14</td>
+		<td>3.5</td>
+		<td>
+			РАЗДЕЛ УСТРОЙСТВО ПОЛОВ ИЗ ЛАМИНАТА
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">15</td>
+		<td>3.6</td>
+		<td>
+			РАЗДЕЛ ОБЛИЦОВКА ПОЛОВ ПЛИТКОЙ
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr >
+		
+		<td class="ord">15</td>
+		<td></td>
+		<td>
+			РАЗДЕЛ ОБЛИЦОВКА ПОЛОВ ПЛИТКОЙ
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">16</td>
+		<td>4.1</td>
+		<td>
+			РАЗДЕЛ ШТУКАТУРКА ПОТОЛКОВ
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">17</td>
+		<td>4.2</td>
+		<td>
+			РАЗДЕЛ МОНТАЖ ПОТОЛКОВ ИЗ ГКЛ
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">18</td>
+		<td>4.3</td>
+		<td>
+			РАЗДЕЛ УТЕПЛЕНИЕ ПОТОЛКА
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">19</td>
+		<td>4.4</td>
+		<td>
+			РАЗДЕЛ ШУМОИЗОЛЯЦИЯ ПОТОЛКА
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">20</td>
+		<td>4.5</td>
+		<td>
+			РАЗДЕЛ НАТЯЖНЫЕ ПОТОЛКИ
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">21</td>
+		<td>4.6</td>
+		<td>
+			РАЗДЕЛ ШПАТЛЕВКА, ПОКРАСКА ПОТОЛКОВ
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">22</td>
+		<td>5.1</td>
+		<td>
+			РАЗДЕЛ ЭЛЕКТРООБОРУДОВАНИЕ ЧЕРНОВОЕ
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">23</td>
+		<td>5.2</td>
+		<td>
+			РАЗДЕЛ ЭЛЕКТРООБОРУДОВАНИЕ ЧИСТОВОЕ
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">24</td>
+		<td>6.1</td>
+		<td>
+			РАЗДЕЛ САНТЕХНИКА ЧЕРНОВАЯ
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">25</td>
+		<td>6.2</td>
+		<td>
+			РАЗДЕЛ САНТЕХНИКА ЧИСТОВАЯ
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">26</td>
+		<td>7.1</td>
+		<td>
+			РАЗДЕЛ ВЕНТИЛЯЦИЯ
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">27</td>
+		<td>8.1</td>
+		<td>
+			РАЗДЕЛ УСТАНОВКА ОСТЕКЛЕНИЯ
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">28</td>
+		<td>9.1</td>
+		<td>
+			РАЗДЕЛ УСТАНОВКА ДВЕРЕЙ
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr class="group">
+		
+		<td class="ord">29</td>
+		<td>10.1</td>
+		<td>
+			РАЗДЕЛ ЗАВЕРШАЮЩИЙ
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr >
+		
+		<td class="ord">29</td>
+		<td>10.1</td>
+		<td>
+			РАЗДЕЛ ЗАВЕРШАЮЩИЙ
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr >
+		
+		<td class="ord">29</td>
+		<td>10.1</td>
+		<td>
+			РАЗДЕЛ ЗАВЕРШАЮЩИЙ
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+	<tr >
+		
+		<td class="ord">29</td>
+		<td>10.1</td>
+		<td>
+			РАЗДЕЛ ЗАВЕРШАЮЩИЙРАЗДЕЛ ЗАВЕРШАЮЩИЙРАЗДЕЛ ЗАВЕРШАЮЩИЙРАЗДЕЛ ЗАВЕРШАЮЩИЙРАЗДЕЛ ЗАВЕРШАЮЩИЙРАЗДЕЛ ЗАВЕРШАЮЩИЙРАЗДЕЛ ЗАВЕРШАЮЩИЙРАЗДЕЛ ЗАВЕРШАЮЩИЙРАЗДЕЛ ЗАВЕРШАЮЩИЙРАЗДЕЛ ЗАВЕРШАЮЩИЙРАЗДЕЛ ЗАВЕРШАЮЩИЙРАЗДЕЛ ЗАВЕРШАЮЩИЙРАЗДЕЛ ЗАВЕРШАЮЩИЙРАЗДЕЛ ЗАВЕРШАЮЩИЙ
+		</td>
+		<td></td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+		<td> </td>
+	</tr>
+</table>
+
+
+<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
+<script type="text/javascript">	
+	var table = $('table')[0];
+	var rowGroups = {};
+//loop through the rows excluding the first row (the header row)
+while(table.rows.length > 1){
+	var row = table.rows[1];
+	var id = $(row.cells[0]).text();
+	if(!rowGroups[id]) rowGroups[id] = [];
+	if(rowGroups[id].length > 0){
+		row.className = 'subrow';
+		$(row).slideUp();
+	}
+	rowGroups[id].push(row);
+	table.deleteRow(1);
+}
+//loop through the row groups to build the new table content
+for(var id in rowGroups){
+	var group = rowGroups[id];
+	for(var j = 0; j < group.length; j++){
+		var row = group[j];
+		if(group.length > 1 && j == 0) {
+            //add + button
+            var lastCell = row.cells[row.cells.length - 1];           
+            var firstCell = row.cells[0];
+            //$("<span class='collapsed'>").appendTo(lastCell).click(plusClick);
+            $("<span class='collapsed'>").appendTo(firstCell).click(plusClick);
+            $(row).find('td').addClass('collapsed').click(rowClick);
+        }                
+        table.tBodies[0].appendChild(row);        
+    }
+}
+
+function rowClick(e){
+	console.log(e);
+	var collapsed = $(this).hasClass('collapsed');
+	var fontSize = collapsed ? 14 : 0;
+	$(this).closest('tr').nextUntil(':not(.subrow)').slideToggle(400)
+	.css('font-size', fontSize);
+	$(this).toggleClass('collapsed');
+}
+//function handling button click
+function plusClick(e){
+	console.log(e);
+	var collapsed = $(this).hasClass('collapsed');
+	var fontSize = collapsed ? 14 : 0;
+	$(this).closest('tr').nextUntil(':not(.subrow)').slideToggle(400)
+	.css('font-size', fontSize);
+	$(this).toggleClass('collapsed');
+}
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="content-type" content="text/html; charset=UTF8">
+  <title>RTC sample test</title>
+
+
+  
+  
+
+  <style type="text/css">
+  #miniVideo {
+    width: 160px;
+    height: 120px;
+    border: 1px solid lightgray;
+  }
+  #localVideo{
+    width: 300px;
+    height: 200px;
+    border: 1px solid lightgray;
+  }
+  #remoteVideo{
+    width: 300px;
+    height: 200px;
+    border: 1px solid lightgray;
+  }
+</style>
+
+</head>
+
+<body>
+
+  <a href=rtc.apk>rtc.apk</a>
+
+  <div id="miniVideo"></div>
+  <div id="localVideo"></div>
+  <div id="remoteVideo"></div>
+
+  <script type="text/javascript">
+    // Stun сервер необходим для того чтоб могли связаться между собой те, кто находится за NAT, ну и, конечно, google нам любезно его предоставляет.
+    var pc_config = {"iceServers": [{"url": "stun:stun.l.google.com:19302"}]};
+    var pc_constraints = {"optional": [{"DtlsSrtpKeyAgreement": true}]};
+    pc = new RTCPeerConnection(pc_config, pc_constraints);
+    pc.onicecandidate = onIceCandidate;
+    pc.onaddstream = onRemoteStreamAdded;
+    
+    function initialize() {
+  //получение элементов страницы для последующей вставки или удаления видео потока
+  
+  localVideo = document.getElementById("localVideo");
+  miniVideo = document.getElementById("miniVideo");
+  remoteVideo = document.getElementById("remoteVideo");
+        //получение потока локального видео назначение его нужному элементу на странице и если все удачно то вызов PeerConnection
+        getUserMedia(
+          {'audio':true, 'video':{"mandatory": {}, "optional": []}}, 
+          function(localVideo, stream){
+      // Вызывает создание PeerConnection.
+      localVideo.src = window.URL.createObjectURL(stream);
+      if (initiator) maybeStart();
+    }, 
+    function(error){console.log("Failed to get access to local media. Error code was " + error.code);}
+    );
+        if (initiator) maybeStart();
+        sendMessage();
+      }
+
+
+    // CallBack функция, с помощью которой RTCPeerConnection и отправляет на сервер сообщения, которые сервер должен вернуть другому браузеру. Технически, для реализации связи канал не имеет значения - либо в websokets, либо ajax.
+    pc.onicecandidate = onIceCandidate;
+    function onIceCandidate(event) {
+      if (event.candidate) {
+        sendMessage({type: 'candidate',                        
+          label: event.candidate.sdpMLineIndex,                     
+          id: event.candidate.sdpMid,                        
+          candidate: event.candidate.candidate});
+      } else {
+        console.log("End of candidates.");
+      }
+    }  
+
+    function sendMessage(message) {
+      var msgString = JSON.stringify(message);
+      console.log('C->S: ' + msgString);
+      $.ajax({
+        type: "POST", 
+        url: "/chat/tv",  
+        dataType: "json",
+        data: {
+          room:room,
+          user_id:user_id,
+          last:last,
+          mess:msgString,
+          is_new:is_new
+        },
+        success: function(data){
+          console.log(['data.msg', data.msg]);
+          if( data.last) last = data.last;
+          for (var res in data.msg){
+            var msg = data.msg[res];
+            processSignalingMessage(msg[2]);
+          }
+        }
+      });
+      is_new = 0;
+      function repeat() {
+        timeout = setTimeout(repeat, 5000);
+        sendMessage();
+      }
+      if (!timeout) repeat();
+    }
+
+    ///////////////////////////////////////////
+    function processSignalingMessage(message) {
+        // В функции проверяются разные варианты ответов и в зависимости от типа ответа выполняется соответствующее действие.
+        // в основном это вызов одного из методов peerСonnection
+        var msg = JSON.parse(message);
+        if (msg.type === 'offer') {
+          if (!initiator && !started){
+            if (!started && localStream ) {
+             createPeerConnection();
+             pc.addStream(localStream);
+             started = true;
+             if (initiator)
+               pc.createOffer(setLocalAndSendMessage, null, {"optional": [], "mandatory": {"MozDontOfferDataChannel": true}});
+           }
+           pc.setRemoteDescription(new RTCSessionDescription(msg));
+           pc.createAnswer(setLocalAndSendMessage, null, sdpConstraints);
+         } else if (msg.type === 'answer' && started) {
+          pc.setRemoteDescription(new RTCSessionDescription(msg));
+        } else if (msg.type === 'candidate' && started) {
+          var candidate = new RTCIceCandidate({sdpMLineIndex:msg.label, candidate:msg.candidate});
+          pc.addIceCandidate(candidate);
+        } else if (msg.type === 'bye' && started) {
+          pc.close();
+        }
+      }}
+    //////////////////////////////////////////
+
+
+    function setLocalAndSendMessage(sessionDescription) {
+         // функция preferOpus устанавливает аудиокодек.
+         sessionDescription.sdp = preferOpus(sessionDescription.sdp);
+         pc.setLocalDescription(sessionDescription);
+         sendMessage(sessionDescription);
+       }
+       pc.onaddstream = onRemoteStreamAdded;
+       function onRemoteStreamAdded(event) {
+        remoteVideo.src = window.URL.createObjectURL(event.stream);
+        remoteStream = event.stream;
+      }
+
+      setTimeout(initialize, 1);
+
+    </script>
+
+  </body>
+  </html>
+
