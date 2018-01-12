@@ -46,34 +46,16 @@
       locale: 'ru',
       nodes: {
         /* The shape defines what the node looks like. There are two types of nodes. One type has the label inside of it and the other type has the label underneath it. The types with the label inside of it are: ellipse, circle, database, box, text. The ones with the label outside of it are: image, circularImage, diamond, dot, star, triangle, triangleDown, hexagon, square and icon.*/
-        shape: 'circle',
-        scaling: {
-          min: 10,
-          max: 20,
-          label: {
-            min: 12,
-            /*Оно самое*/
-            max: 20,
-            drawThreshold: 12,
-            maxVisible: 20
-          }
-        },
+        shape: 'circle',        
         font: {
           size: 12,
           face: 'Tahoma'
         }
-      },
-      edges: {
-        width: 0.15,
-        color: {inherit: 'from'},
-        smooth: {
-          type: 'continuous'
-        }
-      },
+      },      
       physics: false,
       interaction: {
         tooltipDelay: 200,
-        hideEdgesOnDrag: true
+        
       }
     };
     var data = {nodes:nodesDataset, edges:edgesDataset} // Note: data is coming from ds.js
