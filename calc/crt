@@ -1,0 +1,5 @@
+#!/bin/sh
+sed 's/,/./g' 45.csv | sed 's/\t/: [/' | sed 's/\t/, /' | sed 's/$/],/' > 45.cjs
+sed 's/,/./g' 60.csv | sed 's/\t/: [/' | sed 's/\t/, /' | sed 's/$/],/' >60.cjs
+sed 's/,/./g' 90.csv | sed 's/\t/: [/' | sed 's/\t/, /' | sed 's/$/],/' >90.cjs
+sed 's/,/./g' 120.csv | sed 's/\t/: [/' | sed 's/\t/, /' | sed 's/$/],/' >120.cjs
