@@ -546,11 +546,14 @@ function wk() {
                         coptm_2 = tnad(coptm - alpha + 0.2);
                         beta = tnad(s2[time][coptm_1][0] - s2[time][coptm_2][0]);
                         t = tnadt(s2[time][coptm_1][0] - tnadt(beta * alpha / 0.2));
+                        r = tnadt(s2[time][coptm_1][1] - tnadt(beta * alpha / 0.2));
                     } else {
                         t = s2[time][coptm][0];
+                        r = s2[time][coptm][1];
                     }
+                    console.log(s2);    
+                    //r = (t * layer_width);
 
-                    r = (t * layer_width);
                     yi = (r * eu).toFixed(3);
                     ek = (r * ppt).toFixed(3);
                     r = r.toFixed(3);
@@ -1404,7 +1407,7 @@ function load1(ye) {
                     "h": "180",
                     "b": "91",
                     "s": "5.3",
-                    "t": "8",
+                    "t": "8.0",
                     "R": "9",
                   	"S": "23.95",
                   	"m": "18.8"
@@ -14002,8 +14005,7 @@ function yw_TR(eg, ee) {
     $("span.prof[id^=t]").hide();
     yu = yq = false;
     for (f in w) {
-        if (f != 0 && f != 1) {
-			//console.log('D=' + w[f].D + ' k=' + k + ' result=' + (w[f].D == k));
+        if (f != 0 && f != 1) {			
             if (w[f].D === k.toString()) {
                 $("#t" + w[f].t.split('.').join('\\.')).show();
                 if (qe == w[f].t) {
@@ -14018,47 +14020,7 @@ function yw_TR(eg, ee) {
     u = qu("" + k + " x " + qe);
     u = w[u] == undefined ? "" : u;
     $("#sh").val(k > 0 ? qu(k) : "");
-    $("#st").val(qe > 0 && yu ? qu(qe) : "");
-    //$("#st").val(qq > 0 && yq ? qu(qq) : "");
-  /*   if (k == qe && k > 0) {
-		if (qy != 'TR')
-			$("#ll1,#l1,#r1,#rr1").height("10px"); //уменьшение картинки
-        p = 0;
-        if (!$("#ch2").is(":checked")) {
-            p = 1 * (g + 26);
-        }
-		if (qy != 'TR') {
-			$("#l1").css("background-position", "-13px -" + (g - 10 + 13 + p) + "px");
-			$("#ll1").css("background-position", "0 -" + (g - 10 + 13 + p) + "px");
-		}
-        p = 0;
-        if (!$("#ch3").is(":checked")) {
-            p = 1 * (g + 26);
-        }
-		if (qy != 'TR') {
-			$("#r1").css("background-position", " -" + (qf + 13) + "px -" + (g - 10 + 13 + p) + "px");
-			$("#rr1").css("background-position", " -" + (wq + 13) + "px -" + (g - 10 + 13 + p) + "px");
-		}
-    } else {
-		if (qy != 'TR') 
-			$("#ll1,#l1,#r1,#rr1").height("50px"); //Увеличение картинки
-        p = 0;
-        if (!$("#ch2").is(":checked")) {
-            p = 1 * (g + 26);
-        }
-		if (qy != 'TR') {
-			$("#l1").css("background-position", "-13px -" + (g - 50 + 13 + p) + "px");
-			$("#ll1").css("background-position", "0 -" + (g - 50 + 13 + p) + "px");
-		}
-        p = 0;
-        if (!$("#ch3").is(":checked")) {
-            p = 1 * (g + 26);
-        }
-		if (qy != 'TR') {
-			$("#r1").css("background-position", " -" + (qf + 13) + "px -" + (g - 50 + 13 + p) + "px");
-			$("#rr1").css("background-position", " -" + (wq + 13) + "px -" + (g - 50 + 13 + p) + "px");
-		}
-    } */
+    $("#st").val(qe > 0 && yu ? qu(qe) : "");    
     wk();
 }
 
@@ -14367,25 +14329,5 @@ $(function() {
     $("#bl,#b,#br").click(function() {
         click_dt($("#ch4"));
     });
-    load1("20-93");
-	
-	$('#types1').click(function () {
-		$('#types1').removeClass('act').removeClass('act2').addClass('act');
-		$('#types2').removeClass('act').removeClass('act2').addClass('act2');
-		s2 = s2_1;
-		layer_width = layer_width1;
-		$('.prof.act').mousedown();
-		$('.props').hide();
-		$('#props_types1').css('display','table');
-	});
-	
-	$('#types2').click(function () {
-		$('#types1').removeClass('act').removeClass('act2').addClass('act2');
-		$('#types2').removeClass('act').removeClass('act2').addClass('act');
-		s2 = s2_2;
-		layer_width = layer_width2;
-		$('.prof.act').mousedown();
-		$('.props').hide();
-		$('#props_types2').css('display','table');
-	});
+    load1("20-93");	
 });

@@ -1,3 +1,9 @@
+/* base yellow: # ff9800 
+old base red: # cf1919;
+
+*/
+
+
 body{
 	font-family: 'Ubuntu', sans-serif;
 	color: #444;
@@ -12,7 +18,7 @@ body{
 	
 }
 .blk h2{
-	color: #cf1919;
+	color: #ff9800;
 	text-align: center;	
 	font-family: 'Ubuntu', sans-serif;
 	font-size: 21px;
@@ -101,7 +107,7 @@ cursor: pointer;
 	vertical-align: bottom;
 	font-size: 21px;
 	line-height: 21px;
-	color: #cf1919;
+	color: #ff9800;
 	background-color: #fff;
 	padding: 0 20px;
 	position: relative;
@@ -109,7 +115,7 @@ cursor: pointer;
 }
 #res-box .reslab.act{
 	color: #fff;
-	background-color: #cf1919;
+	background-color: #ff9800;
 	font-size: 15px;
 	line-height: 21px;
 }
@@ -135,7 +141,7 @@ cursor: pointer;
 	line-height: 21px;
 	padding: 0 10px 0 20px;
 	color: #fff;
-	background-color: #cf1919;
+	background-color: #ff9800;
 	position: relative;
 	margin-right: 35px;
 }
@@ -160,7 +166,7 @@ cursor: pointer;
 	margin-left: 0px; 
 	margin-bottom:15px;
 	font-size: 12px;
-	color: #cf1919;
+	color: #ff9800;
 }
 #res1 span{
 	display: inline-block; text-align: right; width: 240px;
@@ -183,7 +189,7 @@ cursor: pointer;
 	background-color: #fff;
 	border: none;	
 	font-size: 11px;
-	color: #cf1919;
+	color: #ff9800;
 }
 
 .tbl td, 
@@ -216,7 +222,7 @@ cursor: pointer;
 	border: 0px;
 	font-size: 10px;
 	line-height: 11px;
-	color: #cf1919;
+	color: #ff9800;
 	/*margin: -2px;*/
 }
 #chg td, #chg th{
@@ -243,7 +249,7 @@ cursor: pointer;
 .blk .menu{
 	font-family: 'Ubuntu', sans-serif;
 	text-decoration: none;
-	color: #cf1919;
+	color: #ff9800;
 	background: #e2e2e2;
 	font-size: 12px;
 	line-height: normal;
@@ -261,7 +267,7 @@ cursor: pointer;
 }
 
 .blk .menu.act {
-	background: #cf1919;
+	background: #ff9800;
 	color: #fff;
 }
 
@@ -278,7 +284,7 @@ cursor: pointer;
 	background: #eaeaea;
 	font-family: 'Ubuntu', sans-serif;
 	font-size: 16px;
-	color: #cf1919;
+	color: #ff9800;
 }
 .blk span.menu_p img{
 	display: inline-block;
